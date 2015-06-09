@@ -5,6 +5,8 @@
  */
 package utfpr.ct.dainf.if62c.avaliacao;
 
+import java.util.Vector;
+ 
 /**
  *
  * @author kiqdestro
@@ -31,7 +33,19 @@ public class Poligonal {
     }
     
     public void set(int indice, Ponto2D Ponto1){
-        //falta implementacao
+        boolean aux = false;
+        String TipoDePlano;
+        
+        for(int i=0; i<vertices.length; i++)
+            if(vertices[i]!=null)
+                aux = true;
+        
+        if(aux == false)
+            TipoDePlano = Ponto1.getNome();
+       
+        if(TipoDePlano != Ponto1.getNome())
+            throw new RuntimeException("Vértices devem estar no mesmo plano");
+            
         if(indice>=0 || indice<=vertices.length-1)
             vertices[indice] = Ponto1;        
 }
